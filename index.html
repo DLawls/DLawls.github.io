@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Lawler's Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- About Section -->
+    <section id="about">
+        <header>
+            <h2>About</h2>
+            <p>Welcome to my site. I am David, a graduate software engineer based in Canberra. </p>
+        </header>
+    </section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+        <div class="project-content">
+            <h3>Project Title</h3>
+            <img src="path-to-image.jpg" alt="Project Image">
+            <p>Description of the project...</p>
+            <a href="link-to-github">GitHub Link</a>
+        </div>
+    </div>
+    <!-- Repeat .project for each project -->
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-links">
+        <!-- Discord -->
+        <a href="https://dsc.bio/dlawls" class="contact-icon" target="_blank" aria-label="Discord">
+            <img src="discord.svg" alt="Discord">
+        </a>
+         <!-- Twitter -->
+         <a href="https://twitter.com/davylawler" class="contact-icon" target="_blank" aria-label="Twitter">
+            <img src="twitter.svg" alt="Twitter">
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/Dlawls" class="contact-icon" target="_blank" aria-label="GitHub">
+            <img src="github.svg" alt="GitHub">
+        </a>
+        <button class="contact-icon" aria-label="Email" onclick="copyEmailToClipboard()">
+            <img src="gmail.svg" alt="Email">
+        </button>
+        <!-- Notification Container (hidden by default) -->
+        <div id="notification-container" style="display: none;">
+        <p id="notification-message"></p>
+    </div>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
