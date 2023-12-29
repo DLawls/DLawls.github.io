@@ -7,53 +7,83 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="section-container">
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="neon-border">
         <header>
             <h2>About</h2>
-            <p>Welcome to my site. I am David, a graduate software engineer based in Canberra. </p>
+            <p>
+                Welcome to my site. I am David, a graduate software engineer based in Canberra. 
+                I am interested in many areas of software including Web Development, Data Engineering, and Machine Learning.
+                To find out more about me and what I've been working on, Check out my github and get in touch via the contact links.  
+            </p>
         </header>
     </section>
 
-<!-- Projects Section -->
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-        <div class="project-content">
-            <h3>Project Title</h3>
-            <img src="path-to-image.jpg" alt="Project Image">
-            <p>Description of the project...</p>
-            <a href="link-to-github">GitHub Link</a>
+    <!-- Contact Section -->
+    <section id="contact" class="neon-border">
+        <h2>Contact</h2>
+        
+        <!-- Avatar Image -->
+        <div class="avatar-container">
+            <img src="avatar.jpg" alt="Your Name" class="contact-avatar">
         </div>
-    </div>
-    <!-- Repeat .project for each project -->
-</section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-links">
-        <!-- Discord -->
-        <a href="https://dsc.bio/dlawls" class="contact-icon" target="_blank" aria-label="Discord">
-            <img src="discord.svg" alt="Discord">
-        </a>
-         <!-- Twitter -->
-         <a href="https://twitter.com/davylawler" class="contact-icon" target="_blank" aria-label="Twitter">
-            <img src="twitter.svg" alt="Twitter">
-        </a>
-        <!-- GitHub -->
-        <a href="https://github.com/Dlawls" class="contact-icon" target="_blank" aria-label="GitHub">
-            <img src="github.svg" alt="GitHub">
-        </a>
-        <button class="contact-icon" aria-label="Email" onclick="copyEmailToClipboard()">
-            <img src="gmail.svg" alt="Email">
-        </button>
-        <!-- Notification Container (hidden by default) -->
-        <div id="notification-container" style="display: none;">
-        <p id="notification-message"></p>
+        <div class="contact-links">
+            <!-- Discord -->
+            <a href="https://dsc.bio/dlawls" class="contact-icon" target="_blank" aria-label="Discord">
+                <img src="discord.svg" alt="Discord">
+            </a>
+            <!-- Twitter -->
+            <a href="https://twitter.com/davylawler" class="contact-icon" target="_blank" aria-label="Twitter">
+                <img src="twitter.svg" alt="Twitter">
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com/Dlawls" class="contact-icon" target="_blank" aria-label="GitHub">
+                <img src="github.svg" alt="GitHub">
+            </a>
+            <!-- Email Button -->
+            <button class="contact-icon" aria-label="Email" onclick="copyEmailToClipboard()">
+                <img src="gmail.svg" alt="Email">
+            </button>
+            <!-- Notification Container (hidden by default) -->
+            <div id="notification-container" style="display: none;">
+                <p id="notification-message"></p>
+            </div>
+        </div>
+    </section>
     </div>
-    </div>
-</section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="neon-border">
+        <h2>Projects</h2>
+        <a href="https://github.com/DLawls/DLawls.github.io" class="project-link" target="_blank">
+            <div class="project">
+                <div class="project-details">
+                    <span class="project-date">29/12/2023</span>
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <img src="portfolio-website-img.png" alt="Project Image" class="project-image">
+                </div>
+                <div class="project-description">
+                    <p>The Github Repo for this Website.</p>
+                </div>
+            </div>
+        </a>
+        <a href="https://huggingface.co/spaces/barbieheimer/MND_Tweet_Space" class="project-link" target="_blank">
+            <div class="project">
+                <div class="project-details">
+                    <span class="project-date">12/11/2023</span>
+                    <h3 class="project-title">MND_TweetEvalBert_model</h3>
+                    <img src="emotion-analysis.png" alt="Project Image" class="project-image">
+                </div>
+                <div class="project-description">
+                    <p>This is a project completed with some friends. A fairly accurate Emotion analysis model. For more information, 
+                    please see <a href="https://huggingface.co/barbieheimer/MND_TweetEvalBert_model" target="_blank">MND_TweetEvalBert_model</a></p>
+                </div>
+            </div>
+        </a>
+        <!-- Repeat for each project -->
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

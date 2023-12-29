@@ -1,78 +1,175 @@
-/* Basic Reset */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: #0a0a0a; /* Dark background */
     color: #33ff66; /* Neon text */
+    margin: 10px 40px 40px; /* Adjust as needed for margin size */
+    position: relative;
+    overflow-x: hidden; /* Prevents horizontal scroll */
 }
 
+/* Fixed Elements Styling */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 30px; /* Same as body margin */
+    height: 100%;
+    z-index: -1;
+}
+
+body::before {
+    left: 0;
+    background: rgba(51, 255, 102, 0.1); /* Translucent green */
+    border-right: 3px solid #39FF14; /* Neon line */
+}
+
+body::after {
+    right: 0;
+    background: rgba(51, 255, 102, 0.1); /* Translucent green */
+    border-left: 3px solid #39FF14; /* Neon line */
+}
+
+/* Section Container Styling */
+.section-container {
+    display: flex;
+    justify-content: space-between; /* Distributes space between sections */
+    align-items: stretch; /* Aligns children's heights */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+/* Individual Section Styling */
+#about, #projects, #contact {
+    flex-basis: calc(50% - 20px); /* Calculate width, subtracting the gap */
+    
+}
+
+/* Section Default Styling */
 section {
     padding: 20px;
     margin: 10px;
+    border: 3px solid #39FF14; /* Neon green border */
+    box-shadow: 0 0 10px #39FF14; /* Optional: glow effect */
+    position: relative;
+    background-clip: padding-box; /* Prevents the background from bleeding through the border */
+    z-index: 1; /* Ensures that the section is above the pseudo-element for background fade */
 }
 
-/* About Section */
+/* About Section Styling */
 #about {
     text-align: center;
 }
 
-/* Projects Section */
+/* Projects Section Styling */
 #projects {
-    text-align: center; /* Center the title */
-}
-
-.project {
-    margin-bottom: 20px;
-    transition: background-color 0.3s, border 0.3s; /* Smooth transition for hover effect */
-}
-
-.project:hover {
-    border: 1px solid #33ff66; /* Neon border appears on hover */
-    background-color: #121212; /* Background changes on hover */
-}
-
-.project-content {
-    padding: 20px;
-}
-
-.project h3 {
-    margin-top: 0;
-}
-
-.project img {
-    max-width: 100%; /* Ensures image is responsive */
-    height: auto;
-    display: block; /* To center the image */
-    margin: 0 auto; /* Center the image */
-}
-
-.project p {
-    color: #ccc; /* Light text for description */
-}
-
-.project a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #33ff66; /* Neon color for links */
-    text-decoration: none; /* Optional: removes underline from links */
-}
-
-@media screen and (max-width: 768px) {
-    .project-content {
-        /* Adjust or add styles for responsiveness */
-    }
-}
-
-/* Contact Section */
-#contact {
     text-align: center;
 }
 
+/* Project Link Styling */
+.project-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color from parent */
+    display: block; /* Makes the link block level */
+    margin-bottom: 20px; /* Space between projects */
+}
+
+/* Project Styling */
+.project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s, border 0.3s; /* Smooth transition for hover effect */
+    border: 1px solid transparent; /* Maintain layout */
+}
+
+.project:hover {
+    transform: scale(1.01); /* Slightly enlarge project on hover */
+    border-color: #33ff66; /* Neon border appears on hover */
+}
+
+/* Project Details Styling */
+.project-details {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Project Date Styling */
+.project-date {
+    display: block;
+    color: #ccc; /* Lighter text color for the date */
+    margin-right: 10px; /* Space between date and title */
+}
+
+/* Project Title Styling */
+.project-title {
+    margin: 0;
+    margin-right: 20px; /* Space between title and image */
+}
+
+/* Project Image Styling */
+.project-image {
+    width: 100px; /* Adjust as necessary */
+    height: auto;
+}
+
+/* Project Description Styling */
+.project-description {
+    flex: 2; /* Allows description to take more space */
+    padding: 10px;
+    color: #ccc; /* Light text for description */
+}
+
+/* Contact Section Styling */
+#contact {
+    text-align: center;
+    background-image: url('setup.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    position: relative; /* Needed to position the pseudo-element */
+}
+
+/* Contact Section Overlay Styling */
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9); /* Black overlay with 90% opacity */
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+#contact > * {
+    position: relative; /* Make sure content is above the overlay */
+    z-index: 1;
+}
+
+/* Contact Avatar Styling */
+.avatar-container {
+    margin-bottom: 20px; /* Space between the avatar and contact links */
+}
+
+.contact-avatar {
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular avatar if the image is square */
+    border: 2px solid #ffffff; /* Optional: white border around the avatar */
+    display: inline-block; /* Centered within the .avatar-container */
+}
+
+/* Contact Links Styling */
 .contact-links {
     display: flex;
     justify-content: center;
@@ -80,28 +177,27 @@ section {
     margin-top: 20px;
 }
 
-.contact-icon img {
-    width: 40px; /* Size of the icon */
-    height: auto;
-    transition: transform 0.3s, filter 0.3s; /* Smooth transition for hover effect */
-    /* Removed the filter here so the icon will display in its original colors */
-}
-
-.contact-icon:hover img {
-    transform: scale(1.1); /* Slightly enlarge icons on hover */
-    filter: drop-shadow(0 0 8px #33ff66); /* Neon glow effect on hover */
-    /* Added drop-shadow for neon glow effect on hover without changing the icon color */
-}
-
+/* Contact Icons Styling */
 .contact-icon {
-    /* Existing styles */
     background: none; /* Removes default button background */
     border: none; /* Removes default button border */
     cursor: pointer; /* Changes cursor to pointer */
 }
 
+.contact-icon img {
+    width: 40px; /* Size of the icon */
+    height: auto;
+    transition: transform 0.3s, filter 0.3s; /* Smooth transition for hover effect */
+}
+
+.contact-icon:hover img {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
+    filter: drop-shadow(0 0 8px #33ff66); /* Neon glow effect on hover */
+}
+
+/* Notification Container Styling */
 #notification-container {
-    position: fixed; /* or 'absolute' if you prefer */
+    position: fixed;
     top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -117,4 +213,37 @@ section {
     font-family: 'Courier New', Courier, monospace;
 }
 
+/* Responsive Design for smaller screens */
+@media screen and (max-width: 768px) {
+    .section-container {
+        flex-direction: column; /* Stack sections on small screens */
+    }
+
+    #about, #projects, #contact {
+        flex-basis: 100%; /* Take full width on small screens */
+        min-width: 0; /* Resets the min-width for small screens */
+        width: 100%; /* Takes full width on small screens */
+        margin: 10px 0; /* Adjusted margin for stacked layout */
+    }
+
+    .project {
+        flex-direction: column; /* Stack details and description on small screens */
+        align-items: flex-start;
+    }
+
+    .contact-links {
+        flex-direction: column; /* Stack contact links on small screens */
+        gap: 10px; /* Adjust gap for stacked layout */
+    }
+
+    .contact-icon img {
+        width: 30px; /* Adjust icon size for smaller screens */
+    }
+}
+
+/* Ensuring that content is always visible above the fixed background */
+.section-container > section > * {
+    position: relative;
+    z-index: 1;
+}
 
