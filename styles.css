@@ -84,8 +84,8 @@ section {
 /* Project Styling */
 .project {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: start; /* Aligns items to the start of the flex container */
+    align-items: start; /* Aligns items to the top of the container */
     transition: transform 0.3s, border 0.3s; /* Smooth transition for hover effect */
     border: 1px solid transparent; /* Maintain layout */
 }
@@ -100,7 +100,9 @@ section {
     flex: 1;
     padding: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
 }
 
 /* Project Date Styling */
@@ -113,13 +115,14 @@ section {
 /* Project Title Styling */
 .project-title {
     margin: 0;
-    margin-right: 20px; /* Space between title and image */
+    margin-bottom: 20px; /* Space between title and image */
 }
 
 /* Project Image Styling */
 .project-image {
     width: 100px; /* Adjust as necessary */
     height: auto;
+    margin-bottom: 20px; /* Space between image and description */
 }
 
 /* Project Description Styling */
